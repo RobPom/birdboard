@@ -19,7 +19,7 @@ class CreateActivitiesTable extends Migration
             $table->string('description');
             $table->timestamps();
 
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            // $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
