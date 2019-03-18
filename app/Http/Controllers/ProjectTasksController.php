@@ -37,5 +37,4 @@ class ProjectTasksController extends Controller
        return redirect($project->path());
     }
 
-   
 }
