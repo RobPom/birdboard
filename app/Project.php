@@ -28,18 +28,14 @@ class Project extends Model
         return $this->tasks()->create(compact('body'));
 
     }
-
     
-    public function recordActivity($type)
+    public function recordActivity($description)
     {
-        Activity::create([
-            'project_id' => $this->id, 
-            'description' => $type
-        ]);
+        $this->activity()->create(compact('description'));
     }
 
     public function activity()
     {
-        return $this->hasMany(Activity::class);;
+        return $this->hasMany(Activity::class)->latest();
     }
 }

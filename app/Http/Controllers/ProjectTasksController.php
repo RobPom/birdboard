@@ -27,20 +27,13 @@ class ProjectTasksController extends Controller
             abort(403);
         }
 
-        request()->validate(['body' => 'required']);
+        $attributes = request()->validate(['body' => 'required']);
 
-        $task->update(['body' => request('body')]);
+        $task->update($attributes);
 
-        if(request()->has('completed')) {
-            $task->complete();
-        }
+        request('completed') ? $task->complete() : $task->incomplete();
 
-        // $task->update([
-        //    'body' => request('body'),
-        //    'completed' => request()->has('completed')
-        // ]);
-
-       return redirect($project->path());
+        return redirect($project->path());
     }
 
 }
