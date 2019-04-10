@@ -14,7 +14,7 @@ class TaskObserver
      */
     public function created(Task $task)
     {
-        $task->project->recordACtivity('created_task');
+        $task->recordACtivity('created_task');
     }
 
     /**
