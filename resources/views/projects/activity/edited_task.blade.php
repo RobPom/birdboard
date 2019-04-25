@@ -1,0 +1,1 @@
+You edited "{{$activity->subject->body}}"

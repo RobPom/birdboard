@@ -33,6 +33,8 @@ class ProjectTasksController extends Controller
 
         request('completed') ? $task->complete() : $task->incomplete();
 
+        // $task->recordActivity('edited_task');
+
         return redirect($project->path());
     }
 
